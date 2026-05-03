@@ -46,10 +46,6 @@ class FetchApiData extends Command
                     $count++;
                 }
 
-                Log::info('Exchange rates updated', [
-                    'count' => $count
-                ]);
-
                 $this->info("Saved {$count} rates");
 
             } else {
