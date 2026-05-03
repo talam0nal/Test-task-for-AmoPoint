@@ -1,12 +1,9 @@
-<!-- resources/views/test/form.blade.php -->
-
 <!DOCTYPE html>
 <html>
 <head>
     <title>Test Form</title>
     <meta charset="UTF-8">
 
-    <!-- jQuery (можно через npm, но для простоты CDN) -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <style>
