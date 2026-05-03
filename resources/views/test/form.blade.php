@@ -47,7 +47,29 @@ document.querySelector('#type-select').addEventListener('change', function () {
         input.style.display = input.name.includes(selected) ? 'block' : 'none';
     });
 });
+
+Сниппет для консоли:
+(function () {
+
+    function updateFields(selectedType) {
+        document.querySelectorAll('#form-fields input').forEach(input => {
+            input.style.display = input.name.includes(selectedType) ? 'block' : 'none';
+        });
+    }
+
+    const select = document.getElementById('type-select');
+
+    if (select) {
+        select.addEventListener('change', function () {
+            updateFields(this.value);
+        });
+    }
+
+})();
+
 */
+
+
 </script>
 
 </body>
