@@ -27,6 +27,22 @@ services:
     links:
       - pgsql
 
+  scheduler:
+    container_name: ${SCHEDULER_CONTAINER_NAME}
+    restart: unless-stopped
+    build:
+      context: ./docker/php-fpm
+      args:
+        - DOCK_USER_ID=${DOCKER_USER_ID}
+        - DOCK_GROUP_ID=${DOCKER_GROUP_ID}
+    command: /bin/bash -c 'while true; do php /var/www/html/artisan schedule:run --verbose --no-interaction; sleep 60; done' && php /var/www/html/artisan queue:work --verbose --tries=3 --timeout=90"
+    volumes:
+      - ./:/var/www/html
+    environment:
+      - DB_HOST=pgsql
+    links:
+      - pgsql
+
   pgsql:
     container_name: ${PGSQL_CONTAINER_NAME}
     image: postgres
@@ -38,7 +54,7 @@ services:
       POSTGRES_USER: ${DB_USERNAME}
       POSTGRES_PASSWORD: ${DB_PASSWORD}
     ports:
-      - ${DOCKER_PQSQL_PORT}:5432
+      - "5434:5432"
 
   adminer:
     container_name: ${ADMINER_CONTAINER_NAME}
