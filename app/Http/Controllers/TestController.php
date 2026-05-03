@@ -16,4 +16,10 @@ class TestController extends Controller
         ]);
     }
 
+    public function index()
+    {
+        $types = ['type1', 'type2', 'type3'];
+
+        return view('test.form', compact('types'));
+    }
 }

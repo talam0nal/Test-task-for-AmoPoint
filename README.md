@@ -8,6 +8,9 @@
 #### 1.2 пункт ТЗ
 Route /api/json-data
 
+### 2 пунк ТЗ
+Route /test-form
+
 #### .env параметры
 
 APP_NAME - название приложения
