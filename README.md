@@ -8,7 +8,7 @@
 #### 1.2 пункт ТЗ
 Route /api/json-data
 
-### 2 пунк ТЗ
+#### 2 пункт ТЗ
 Route /test-form
 
 #### .env параметры
