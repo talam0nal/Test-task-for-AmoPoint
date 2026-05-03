@@ -1,0 +1,52 @@
+services:
+  web:
+    container_name: ${WEB_CONTAINER_NAME}
+    restart: unless-stopped
+    image: nginx:latest
+    ports:
+      - ${DOCKER_WEB_PORT}:80
+    volumes:
+      - ./docker/nginx/conf.d:/etc/nginx/conf.d
+      - ./:/var/www/html
+    links:
+      - php
+
+  php:
+    container_name: ${PHP_CONTAINER_NAME}
+    restart: unless-stopped
+    user: "${UID:-1000}:${GID:-1000}"
+    build:
+      context: ./docker/php-fpm
+      args:
+        - DOCK_USER_ID=${DOCKER_USER_ID}
+        - DOCK_GROUP_ID=${DOCKER_GROUP_ID}
+    volumes:
+      - ./:/var/www/html
+    environment:
+      - DB_HOST=pgsql
+    links:
+      - pgsql
+
+  pgsql:
+    container_name: ${PGSQL_CONTAINER_NAME}
+    image: postgres
+    restart: unless-stopped
+    volumes:
+      - pgsql_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: ${DB_DATABASE}
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - ${DOCKER_PQSQL_PORT}:5432
+
+  adminer:
+    container_name: ${ADMINER_CONTAINER_NAME}
+    image: adminer
+    environment:
+      ADMINER_DEFAULT_SERVER: pgsql
+    ports:
+      - ${ADMINER_PORT}:8080
+
+volumes:
+  pgsql_data:
