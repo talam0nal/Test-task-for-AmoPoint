@@ -35,29 +35,9 @@
     <input type="text" name="type3_company" placeholder="Type3 Company">
 </div>
 
+<script src="{{ asset('js/type-fields.js') }}"></script>
+
 <script>
-$(document).ready(function () {
-
-    function updateFields(selectedType) {
-        // Скрываем все поля
-        $('#form-fields input').addClass('hidden');
-
-        if (!selectedType) return;
-
-        // Показываем только те, у которых name содержит выбранный тип
-        $('#form-fields input').filter(function () {
-            return $(this).attr('name').includes(selectedType);
-        }).removeClass('hidden');
-    }
-
-    // при изменении select
-    $('#type-select').on('change', function () {
-        const selectedType = $(this).val();
-        updateFields(selectedType);
-    });
-
-});
-
 //Для прода можно было бы использовать следующее решение:
 /*
 document.querySelector('#type-select').addEventListener('change', function () {
