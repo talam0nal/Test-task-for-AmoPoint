@@ -60,8 +60,3 @@ ADMINER_CONTAINER_NAME - имя докер контейнера adminer, при�
 И выполнить команды:  
 `chmod -R 777 /var/www/html/storage`  
 `chmod -R 777 /var/www/html/bootstrap/cache`  
-
-
-#### Изменение паролей пользователей
-Чтобы изменить пароль пользователя, необходимо выполнить команду:
-`php artisan change-user-password --email=user@example.com --password=somepassword`
