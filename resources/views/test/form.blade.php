@@ -57,6 +57,17 @@ $(document).ready(function () {
     });
 
 });
+
+//Для прода можно было бы использовать следующее решение:
+/*
+document.querySelector('#type-select').addEventListener('change', function () {
+    const selected = this.value;
+
+    document.querySelectorAll('#form-fields input').forEach(input => {
+        input.style.display = input.name.includes(selected) ? 'block' : 'none';
+    });
+});
+*/
 </script>
 
 </body>
