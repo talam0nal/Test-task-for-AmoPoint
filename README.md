@@ -6,7 +6,6 @@
 APP_NAME - название приложения
 
 APP_URL - url адрес бэк-части приложения (http://back.localhost)  
-FRONT_APP_URL - адрес фронт-части приложения (http://front.localhost)
 
 DOCKER_WEB_PORT - внешний порт сервера\
 DOCKER_USER_ID - ид пользователя докера\
