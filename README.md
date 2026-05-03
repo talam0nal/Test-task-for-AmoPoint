@@ -36,7 +36,7 @@ PGSQL_CONTAINER_NAME - имя докер контейнера pgsql, приме�
 ADMINER_CONTAINER_NAME - имя докер контейнера adminer, пример значения activity-adminer
 
 Все остальные параметры уже имеют необходимые значения для развертки или автоматически получат их в процессе
-1) Собрать и запустить проект командой docker-compose up -d --build
+1) Собрать и запустить проект командой docker-compose up -d
 2) Подключиться к php контейнеру `docker compose exec php bash` и выполнить команды:\
 `composer install`\
 `composer update`\
