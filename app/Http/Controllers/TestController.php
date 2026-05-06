@@ -11,6 +11,7 @@ class TestController extends Controller
     public function getList()
     {
         $exchangeRates = ExchangeRate::get();
+        //Здесь можно было бы использовать возвращение resource
         return response()->json([
             'data' => $exchangeRates->toArray(),
         ]);
