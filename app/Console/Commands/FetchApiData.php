@@ -65,6 +65,5 @@ class FetchApiData extends Command
             $this->error('Exception occurred');
         }
 
-        Log::info('Exchange rate fetch finished');
     }
 }
